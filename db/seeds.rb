@@ -2,10 +2,14 @@ gem 'rest-client'
 # 351
 User.destroy_all
 
+User.create(username:"admin", firstname:"admin", lastname:"admin", email:"admin@gmail.com", password:"password", admin:true)
+# Rating.create(amount: 90, user: user, movie: lego_movie)
+
+
 # Mine
 # @apikey = "1d1382f6"
 # Alex's
-# @apikey = "f71d8206"
+@apikey = "f71d8206"
 
 
 def initial_parse
@@ -65,5 +69,3 @@ end
 # end
 
 # initial_parse
-
-User.create(username:"admin", firstname:"admin", lastname:"admin", email:"admin@gmail.com", password:"password", admin:true)

@@ -11,7 +11,14 @@ class MoviesController < ApplicationController
     else
       movies = Movie.all
     end
+    # total: Movie.all.count
+    render json:  MovieSerializer.new(movies).to_serialized_json
+  end
 
-    render json: {movies: movies, total: Movie.all.count}
+  def show
+      movie = Movie.find_by(id: params[:id])
+
+    # total: Movie.all.count
+    render json:  MovieSerializer.new(movie).to_serialized_json
   end
 end
