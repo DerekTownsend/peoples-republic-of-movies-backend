@@ -41,7 +41,7 @@ class MovieSerializer < ActiveModel::Serializer
     end
 
 
-    {movie: @movie, total: Movie.all.count}.to_json(obj)
+    {movies: @movie, total: Movie.all.count}.to_json(obj)
   end
 
 end
