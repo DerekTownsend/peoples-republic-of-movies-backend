@@ -1,10 +1,19 @@
 gem 'rest-client'
 # 351
-User.destroy_all
 
-User.create(username:"admin", firstname:"admin", lastname:"admin", email:"admin@gmail.com", password:"password", admin:true)
-# Rating.create(amount: 90, user: user, movie: lego_movie)
+# User.destroy_all
 
+# User.create(username:"admin", firstname:"admin", lastname:"admin", email:"admin@gmail.com", password:"password", admin:true)
+# Rating.destroy_all
+
+# rating_amounts = (1...100).to_a
+
+# Movie.all.each do |movie|
+#   (5...25).to_a.sample.times do
+#     Rating.create(amount: rating_amounts.sample , user: User.first, movie: movie)
+#   end
+# end
+# p "DONE"
 
 # Mine
 # @apikey = "1d1382f6"
@@ -13,9 +22,10 @@ User.create(username:"admin", firstname:"admin", lastname:"admin", email:"admin@
 
 
 def initial_parse
-  page=190
-  while page <= 200 do
-    # p page
+  max_pages=351
+  page = 1
+  while page <= max_pages do
+    p page
     movie_data = RestClient.get("http://www.omdbapi.com/?s=movie&page=#{page}&apikey=#{@apikey}")
     parsed_movie_data = JSON.parse(movie_data)['Search']
     more_detailed_search(parsed_movie_data)
