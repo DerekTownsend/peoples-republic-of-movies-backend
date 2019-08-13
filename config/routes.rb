@@ -7,7 +7,9 @@ Rails.application.routes.draw do
   resources :actor_movies
   resources :genres
   resources :actors
+  post '/search', to: 'movies#search'
   resources :movies
+
   namespace :api do
       namespace :v1 do
         resources :users, only: [:create]

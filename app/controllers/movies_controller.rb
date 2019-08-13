@@ -21,4 +21,25 @@ class MoviesController < ApplicationController
     # total: Movie.all.count
     render json:  MovieSerializer.new(movie).to_serialized_json
   end
+
+  def search
+    page = params["page"]
+    page = page.to_i
+    ending_page = page*24
+    starting_page = ending_page-24
+
+    movies = Movie.all.select do |movie|
+      if movie.title.downcase.include?(params[:term].downcase)
+        movie
+      end
+    end
+
+    if movies
+      movies_max = movies.count
+      movies = movies[starting_page...ending_page]
+      render json:  MovieSerializer.new(movies, movies_max).to_serialized_json
+    else
+      render json: {movies: []}
+    end
+  end
 end

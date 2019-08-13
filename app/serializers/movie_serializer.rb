@@ -1,8 +1,9 @@
 class MovieSerializer < ActiveModel::Serializer
   attributes :id, :title, :year, :mpaa_rating, :released_date, :director, :writer, :plot, :language, :country, :poster_url, :producer
 
-  def initialize(movie_object)
+  def initialize(movie_object, total = Movie.all.count)
     @movie = movie_object
+    @total = total
   end
 
   def to_serialized_json
@@ -19,6 +20,7 @@ class MovieSerializer < ActiveModel::Serializer
           ratings:{only: %i[ id amount ]},
         }
       }
+
     else
       obj =
       {
@@ -41,7 +43,7 @@ class MovieSerializer < ActiveModel::Serializer
     end
 
 
-    {movies: @movie, total: Movie.all.count}.to_json(obj)
+    {movies: @movie, total: @total}.to_json(obj)
   end
 
 end
