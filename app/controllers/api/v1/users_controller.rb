@@ -6,9 +6,9 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def create
-    user = User.new(user_params)
-    puts user
-    # user = User.create(user_params)
+    # user = User.new(user_params)
+    # puts user
+    user = User.create(user_params)
 
     if user.valid?
       token = encode_token(user_id: user.id)
@@ -20,7 +20,7 @@ class Api::V1::UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:username, :firstname, :lastname, :email, :password_digest, :admin)
+    params.require(:user).permit(:username, :firstname, :lastname, :email, :password, :admin)
   end
 
 end
