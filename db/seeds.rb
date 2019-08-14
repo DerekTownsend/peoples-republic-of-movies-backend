@@ -6,7 +6,7 @@ gem 'rest-client'
 # User.create(username:"admin", firstname:"admin", lastname:"admin", email:"admin@gmail.com", password:"password", admin:true)
 # Rating.destroy_all
 
-# rating_amounts = (1...100).to_a
+# Seeding Comments
  comments = [
    "This Movie is pretty good. It was heart warming thought provoking and really made me think deeply about the human condition and what it means to be human. My eyes have never been this opened by a peice of media. I feel truely awakened.",
 
@@ -52,6 +52,32 @@ gem 'rest-client'
 
   "Do you know why the Hunters are drawn to this Nightmare? Because it sprouted from their very misdeeds. Things that some would rather keep secret. A pitiful tale of petty arrogance, really."
  ]
+ titles = [
+   "That movie was totally tubular",
+   "Thats gonna be a yikes from me",
+   "You either yeet or get yeeted",
+   "Bruce Wayne Did nothing wrong",
+   "Whats a pony my dude",
+   "That was wickity wickity wack",
+   "You'll never see it coming",
+   "Some gansta is dissin' your flygirl",
+   "Somebody once told me the world is gonna roll me",
+   "What is america",
+   "Who is america",
+   "Why is america",
+   "Language",
+   "Thats my Secret Cap, im always Angry",
+   "I lost the kid",
+   "I don't feel so good Mr. Stark"
+ ]
+ Movie.all.each do |movie|
+   (2..6).to_a.sample.times do
+     Comment.create(title: titles.sample, content: comments.sample , user: User.first, movie: movie)
+   end
+ end
+
+# Seeding Ratings
+# rating_amounts = (1...100).to_a
 # Movie.all.each do |movie|
 #   (5...25).to_a.sample.times do
 #     Rating.create(amount: rating_amounts.sample , user: User.first, movie: movie)
