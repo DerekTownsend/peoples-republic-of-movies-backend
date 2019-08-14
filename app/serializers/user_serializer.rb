@@ -16,7 +16,7 @@ class UserSerializer < ActiveModel::Serializer
           },except: %i[updated_at]
       }
       if @jwt
-        {user: @user.to_json(obj), jwt: @jwt}
+        {user: @user, jwt: @jwt}.to_json(obj)
       else
         @user.to_json(obj)
       end
