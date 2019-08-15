@@ -94,15 +94,17 @@ gem 'rest-client'
 # @apikey = "2235a9a9"
 #Marcus
 @apikey = "bc23308"
+#Jooyon
+# @apikey = "a52d9f5f"
 
 def initial_parse
-  page = 291
-  term = "movie"
+  # page = 291
+  # term = "movie"
   # movie max pages
-  max_pages=351
-  # term = "dance"
-  # max_pages=201
-  # page = 183
+  # max_pages=351
+  term = "dance"
+  max_pages=201
+  page = 1
   while page <= max_pages do
     puts "CURRENT PAGE #{page}"
     movie_data = RestClient.get("http://www.omdbapi.com/?s=#{term}&page=#{page}&apikey=#{@apikey}")
