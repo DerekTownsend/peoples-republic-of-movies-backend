@@ -1,6 +1,6 @@
 gem 'rest-client'
 
-# User.destroy_all
+User.destroy_all
 
 User.create(username:"admin", firstname:"admin", lastname:"admin", email:"admin@gmail.com", password:"password", admin:true)
 # Rating.destroy_all
@@ -94,7 +94,7 @@ User.create(username:"admin", firstname:"admin", lastname:"admin", email:"admin@
 # @apikey = "2235a9a9"
 
 def initial_parse
-  page = 94
+  page = 200
   term = "movie"
   # movie max pages
   max_pages=351
@@ -102,7 +102,7 @@ def initial_parse
   # max_pages=201
   # page = 183
   while page <= max_pages do
-    p page
+    puts "CURRENT PAGE #{page}"
     movie_data = RestClient.get("http://www.omdbapi.com/?s=#{term}&page=#{page}&apikey=#{@apikey}")
     parsed_movie_data = JSON.parse(movie_data)['Search']
     more_detailed_search(parsed_movie_data)
