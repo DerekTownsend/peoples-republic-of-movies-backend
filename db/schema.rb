@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_13_160630) do
+ActiveRecord::Schema.define(version: 2019_08_13_190637) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -68,10 +68,10 @@ ActiveRecord::Schema.define(version: 2019_08_13_160630) do
 
   create_table "likes", force: :cascade do |t|
     t.bigint "user_id"
-    t.bigint "movie_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["movie_id"], name: "index_likes_on_movie_id"
+    t.bigint "comment_id"
+    t.index ["comment_id"], name: "index_likes_on_comment_id"
     t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
@@ -120,7 +120,7 @@ ActiveRecord::Schema.define(version: 2019_08_13_160630) do
   add_foreign_key "favorites", "users"
   add_foreign_key "genre_movies", "genres"
   add_foreign_key "genre_movies", "movies"
-  add_foreign_key "likes", "movies"
+  add_foreign_key "likes", "comments"
   add_foreign_key "likes", "users"
   add_foreign_key "ratings", "movies"
   add_foreign_key "ratings", "users"

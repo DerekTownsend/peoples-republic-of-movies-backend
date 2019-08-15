@@ -28,6 +28,7 @@ class MovieSerializer < ActiveModel::Serializer
          {
            comments:{
              include:{
+             likes:{except: %i[ created_at updated_at ]},
              user: {only: %i[ username id ]}
              },only: %i[ id title content]},
            ratings:{
