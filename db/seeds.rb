@@ -93,9 +93,9 @@ gem 'rest-client'
 #Yuta
 # @apikey = "2235a9a9"
 #Marcus
-@apikey = "bc23308"
+# @apikey = "bc23308"
 #Jooyon
-# @apikey = "a52d9f5f"
+@apikey = "a52d9f5f"
 
 def initial_parse
   # page = 291
