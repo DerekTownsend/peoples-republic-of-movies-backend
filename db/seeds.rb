@@ -94,7 +94,7 @@ User.create(username:"admin", firstname:"admin", lastname:"admin", email:"admin@
 # @apikey = "2235a9a9"
 
 def initial_parse
-  page = 1
+  page = 94
   term = "movie"
   # movie max pages
   max_pages=351
