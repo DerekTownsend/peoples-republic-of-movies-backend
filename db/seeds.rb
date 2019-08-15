@@ -1,9 +1,8 @@
 gem 'rest-client'
-# 351
 
 # User.destroy_all
 
-# User.create(username:"admin", firstname:"admin", lastname:"admin", email:"admin@gmail.com", password:"password", admin:true)
+User.create(username:"admin", firstname:"admin", lastname:"admin", email:"admin@gmail.com", password:"password", admin:true)
 # Rating.destroy_all
 
 # Seeding Comments
@@ -86,18 +85,22 @@ gem 'rest-client'
 # p "DONE"
 
 # Mine
-# @apikey = "1d1382f6"
+@apikey = "1d1382f6"
 # Alex's
-@apikey = "f71d8206"
-#
+# @apikey = "f71d8206"
+#John
+# @apikey = "5553e2e3"
+#Yuta
+# @apikey = "2235a9a9"
 
 def initial_parse
-  # term = "movie"
-  #movie max pages
-  # max_pages=351
-  term = "dance"
-  max_pages=201
-  page = 183
+  page = 1
+  term = "movie"
+  # movie max pages
+  max_pages=351
+  # term = "dance"
+  # max_pages=201
+  # page = 183
   while page <= max_pages do
     p page
     movie_data = RestClient.get("http://www.omdbapi.com/?s=#{term}&page=#{page}&apikey=#{@apikey}")
@@ -158,4 +161,4 @@ end
 #   initial_parse
 # end
 
-# initial_parse
+initial_parse
