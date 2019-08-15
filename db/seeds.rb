@@ -91,12 +91,12 @@ gem 'rest-client'
 #John
 # @apikey = "5553e2e3"
 #Yuta
-@apikey = "2235a9a9"
+# @apikey = "2235a9a9"
 #Marcus
-# @apikey = "bc23308"
+@apikey = "bc23308"
 
 def initial_parse
-  page = 200
+  page = 291
   term = "movie"
   # movie max pages
   max_pages=351
