@@ -1,8 +1,8 @@
 gem 'rest-client'
 
-User.destroy_all
+# User.destroy_all
 
-User.create(username:"admin", firstname:"admin", lastname:"admin", email:"admin@gmail.com", password:"password", admin:true)
+# User.create(username:"admin", firstname:"admin", lastname:"admin", email:"admin@gmail.com", password:"password", admin:true)
 # Rating.destroy_all
 
 # Seeding Comments
@@ -89,9 +89,11 @@ User.create(username:"admin", firstname:"admin", lastname:"admin", email:"admin@
 # Alex's
 # @apikey = "f71d8206"
 #John
-@apikey = "5553e2e3"
+# @apikey = "5553e2e3"
 #Yuta
-# @apikey = "2235a9a9"
+@apikey = "2235a9a9"
+#Marcus
+# @apikey = "bc23308"
 
 def initial_parse
   page = 200
