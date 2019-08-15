@@ -69,11 +69,11 @@ User.create(username:"admin", firstname:"admin", lastname:"admin", email:"admin@
    "I lost the kid",
    "I don't feel so good Mr. Stark"
  ]
- Movie.all.each do |movie|
-   (2..6).to_a.sample.times do
-     Comment.create(title: titles.sample, content: comments.sample , user: User.first, movie: movie)
-   end
- end
+ # Movie.all.each do |movie|
+ #   (2..6).to_a.sample.times do
+ #     Comment.create(title: titles.sample, content: comments.sample , user: User.first, movie: movie)
+ #   end
+ # end
 
 # Seeding Ratings
 # rating_amounts = (1...100).to_a
