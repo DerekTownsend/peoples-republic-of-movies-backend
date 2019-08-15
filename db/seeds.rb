@@ -87,9 +87,9 @@ User.create(username:"admin", firstname:"admin", lastname:"admin", email:"admin@
 # Mine
 # @apikey = "1d1382f6"
 # Alex's
-@apikey = "f71d8206"
+# @apikey = "f71d8206"
 #John
-# @apikey = "5553e2e3"
+@apikey = "5553e2e3"
 #Yuta
 # @apikey = "2235a9a9"
 
