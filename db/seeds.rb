@@ -103,8 +103,8 @@ def initial_parse
   # movie max pages
   # max_pages=351
   term = "dance"
+  page = 32
   max_pages=201
-  page = 1
   while page <= max_pages do
     puts "CURRENT PAGE #{page}"
     movie_data = RestClient.get("http://www.omdbapi.com/?s=#{term}&page=#{page}&apikey=#{@apikey}")
