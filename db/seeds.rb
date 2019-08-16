@@ -69,19 +69,19 @@ gem 'rest-client'
    "I lost the kid",
    "I don't feel so good Mr. Stark"
  ]
- # Movie.all.each do |movie|
- #   (2..6).to_a.sample.times do
- #     Comment.create(title: titles.sample, content: comments.sample , user: User.first, movie: movie)
- #   end
- # end
+ Movie.all.each do |movie|
+   (2..6).to_a.sample.times do
+     Comment.create(title: titles.sample, content: comments.sample , user: User.first, movie: movie)
+   end
+ end
 
 # Seeding Ratings
-# rating_amounts = (1...100).to_a
-# Movie.all.each do |movie|
-#   (5...25).to_a.sample.times do
-#     Rating.create(amount: rating_amounts.sample , user: User.first, movie: movie)
-#   end
-# end
+rating_amounts = (65...100).to_a
+Movie.all.each do |movie|
+  # (5...25).to_a.sample.times do
+    Rating.create(amount: rating_amounts.sample , user: User.first, movie: movie)
+  # end
+end
 # p "DONE"
 
 # Mine
@@ -167,4 +167,4 @@ end
 #   initial_parse
 # end
 
-initial_parse
+# initial_parse
