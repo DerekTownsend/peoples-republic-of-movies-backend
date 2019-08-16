@@ -95,7 +95,9 @@ gem 'rest-client'
 #Marcus
 # @apikey = "bc23308"
 #Jooyon
-@apikey = "a52d9f5f"
+# @apikey = "a52d9f5f"
+#Jooyon 2
+@apikey = "10dadbeb"
 
 def initial_parse
   # page = 291
@@ -103,7 +105,7 @@ def initial_parse
   # movie max pages
   # max_pages=351
   term = "dance"
-  page = 32
+  page = 123
   max_pages=201
   while page <= max_pages do
     puts "CURRENT PAGE #{page}"

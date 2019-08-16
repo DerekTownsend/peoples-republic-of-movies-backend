@@ -19,6 +19,34 @@ class Api::V1::UsersController < ApplicationController
     end
   end
 
+  def favorite_movies
+    page = params["page"]
+    page = page.to_i
+    ending_page = page*24
+    starting_page = ending_page-24
+
+    user = current_user
+
+    movies_max = user.movie_favorites.count
+    movies = user.movie_favorites[starting_page...ending_page]
+
+    render json:  MovieSerializer.new(movies, movies_max).to_serialized_json
+  end
+
+  def comments
+    page = params["page"]
+    page = page.to_i
+    ending_page = page*24
+    starting_page = ending_page-24
+
+    user = current_user
+
+    comments_max = user.comments.count
+    comments = user.comments[starting_page...ending_page]
+
+    render json:  CommentSerializer.new(comments, comments_max).to_serialized_json
+  end
+
   private
   def user_params
     params.require(:user).permit(:username, :firstname, :lastname, :email, :password, :admin)

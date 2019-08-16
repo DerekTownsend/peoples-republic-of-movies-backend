@@ -3,11 +3,13 @@ class CommentSerializer < ActiveModel::Serializer
   has_one :user
   has_one :movie
 
-  def initialize(comment_object)
+  def initialize(comment_object, comments_max=nil)
     @comment = comment_object
+    @comments_max = comments_max
   end
 
     def to_serialized_json
+
       obj =
       {
         include:
@@ -17,8 +19,11 @@ class CommentSerializer < ActiveModel::Serializer
           user:{only: %i[ id username ]},
         }
       }
-
-      @comment.to_json(obj)
+      if @comments_max
+        {comments: @comment, total: @comments_max}.to_json(obj)
+      else
+        @comment.to_json(obj)
+      end
     end
 
 end
