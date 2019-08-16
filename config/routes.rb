@@ -14,7 +14,11 @@ Rails.application.routes.draw do
       namespace :v1 do
         resources :users, only: [:create]
         get '/profile', to: 'users#profile'
+        get '/favorites', to: 'users#favorite_movies'
+        get '/comments', to: 'users#comments'
+        get '/ratings', to: 'users#ratings'
         post '/login', to: 'auth#create'
+
       end
     end
       # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
