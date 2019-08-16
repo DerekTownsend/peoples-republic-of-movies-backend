@@ -47,6 +47,19 @@ class Api::V1::UsersController < ApplicationController
     render json:  CommentSerializer.new(comments, comments_max).to_serialized_json
   end
 
+  def ratings
+    page = params["page"]
+    page = page.to_i
+    ending_page = page*24
+    starting_page = ending_page-24
+
+    user = current_user
+    ratings_max = user.ratings.count
+    ratings = user.ratings[starting_page...ending_page]
+
+    render json:  RatingSerializer.new(ratings, ratings_max).to_serialized_json
+  end
+
   private
   def user_params
     params.require(:user).permit(:username, :firstname, :lastname, :email, :password, :admin)

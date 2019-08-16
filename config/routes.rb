@@ -16,6 +16,7 @@ Rails.application.routes.draw do
         get '/profile', to: 'users#profile'
         get '/favorites', to: 'users#favorite_movies'
         get '/comments', to: 'users#comments'
+        get '/ratings', to: 'users#ratings'
         post '/login', to: 'auth#create'
 
       end

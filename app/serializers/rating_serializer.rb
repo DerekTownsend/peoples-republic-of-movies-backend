@@ -14,7 +14,7 @@ class RatingSerializer < ActiveModel::Serializer
       {
         include:
         {
-          movie:{except: %i[ created_at updated_at ]}
+          movie:{only: %i[ id title ]}
         }
       }
       if @ratings_max
